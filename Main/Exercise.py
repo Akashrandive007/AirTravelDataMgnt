@@ -115,8 +115,3 @@ if __name__ == '__main__':
     # spark.sql("SELECT DISTINCT(l.Country) from airlines_view l "
     #           "INNER JOIN airports_view p "
     #           "ON l.Country=p.Country").show()
-
-    # Q2 get the airlines details like name, id,which is has taken takeoff more than 3 times from same airport
-    # spark.sql("SELECT l.Airline_id, l.Name FROM airlines_view l "
-    #           "INNER JOIN routes_view r"
-    #           "ON l.Airline_id=r.airline_id ").show()
