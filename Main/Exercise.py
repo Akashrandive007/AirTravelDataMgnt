@@ -103,15 +103,17 @@ if __name__ == '__main__':
     # final_df.orderBy('airline_id').show()
 
     #   --SQL--  #
-    # routes_df.createOrReplaceTempView("routes_view")
-    # airports_df.createOrReplaceTempView("airports_view")
-    # airlines_df.createOrReplaceTempView("airlines_view")
+    routes_df.createOrReplaceTempView("routes_view")
+    airports_df.createOrReplaceTempView("airports_view")
+    airlines_df.createOrReplaceTempView("airlines_view")
     #
     # spark.sql("select * from routes_view").show()
     # spark.sql("select * from airports_view").show()
     # spark.sql("select * from airlines_view").show()
 
     # Q1 find the country name which is having both airlines and airport
-    # spark.sql("SELECT DISTINCT(l.Country) from airlines_view l "
-    #           "INNER JOIN airports_view p "
-    #           "ON l.Country=p.Country").show()
+    spark.sql("SELECT DISTINCT(l.Country) from airlines_view l "
+              "INNER JOIN airports_view p "
+              "ON l.Country=p.Country").show()
+
+    # Q2
