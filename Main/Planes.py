@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 from Common.readdatautil import ReadDataUtil
 from pyspark.sql.types import *
-from Common.witedatautil import WriteDataUtil
+from Common.writedatautil import WriteDataUtil
 from pyspark.sql.functions import *
 
 if __name__ == '__main__':

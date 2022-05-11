@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 from Common.readdatautil import ReadDataUtil
 from pyspark.sql.types import *
 from pyspark.sql.functions import *
-from Common.witedatautil import WriteDataUtil
+from Common.writedatautil import WriteDataUtil
 
 if __name__ == '__main__':
     spark = SparkSession.builder.appName("Airports Data").master("local[*]").getOrCreate()

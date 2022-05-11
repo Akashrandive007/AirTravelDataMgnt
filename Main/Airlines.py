@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 from Common.readdatautil import ReadDataUtil
 from pyspark.sql.types import *
-from Common.witedatautil import WriteDataUtil
+from Common.writedatautil import WriteDataUtil
 
 if __name__ == '__main__':
     spark = SparkSession.builder.master("local[*]").appName("Air Travel Data Management ").getOrCreate()
