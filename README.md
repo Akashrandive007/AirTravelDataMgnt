@@ -1,7 +1,7 @@
 # AirTravelDataMgnt
 Processed Files With Exercise
 
-Common Contains Required utilities for the Reading Writting Files.
+Common Contains Required utilities to Read And Write Files.
 
 Main Contains All Codes Of Processing Files As Per The Given Conditions.
 
