@@ -1,6 +1,7 @@
 from pyspark.sql import SparkSession
 from Common.readdatautil import ReadDataUtil
 from pyspark.sql.types import *
+from Common.witedatautil import WriteDataUtil
 from pyspark.sql.functions import *
 
 if __name__ == '__main__':
@@ -25,5 +26,7 @@ if __name__ == '__main__':
     # planes_df.filter(col('IATA code') == '\\N').show(1)
     # planes_df.filter(col('ICAO code') == '\\N').show(1)
     #
-    # processed_planes = planes_df.replace(['\\N'], ['(Unknown)'], ['IATA code', 'ICAO code'])
+    processed_planes = planes_df.replace(['\\N'], ['(Unknown)'], ['IATA code', 'ICAO code'])
     # processed_planes.write.csv(r"C:\Users\Akash007\Desktop\airline data\Processed Data\Planes", header=True)
+    wdu = WriteDataUtil()
+    wdu.writecsv(df=processed_planes, path= r"C:\Users\Akash007\PycharmProjects\AirTravelDataMgnt\Written With WDU\Planes_Csv",header=True)

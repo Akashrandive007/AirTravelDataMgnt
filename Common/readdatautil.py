@@ -19,3 +19,4 @@ class ReadDataUtil:
         else:
             readcsv = spark.read.csv(path=path, inferSchema=inferschema, header=header, sep=sep, schema=schema)
         return readcsv
+

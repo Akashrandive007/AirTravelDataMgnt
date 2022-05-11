@@ -1,6 +1,7 @@
 from pyspark.sql import SparkSession
 from Common.readdatautil import ReadDataUtil
 from pyspark.sql.types import *
+from Common.witedatautil import WriteDataUtil
 
 if __name__ == '__main__':
     spark = SparkSession.builder.master("local[*]").appName("Air Travel Data Management ").getOrCreate()
@@ -43,4 +44,6 @@ if __name__ == '__main__':
     # airline_df.filter(airline_df.Country.isNull()).show(1)
     # airline_df.filter(airline_df.Active.isNull()).show(1)
 
-    processed_df_na.write.csv(r"C:\Users\Akash007\Desktop\airline data\Processed Data\Airlines", header=True)
+    # processed_df_na.write.csv(r"C:\Users\Akash007\Desktop\airline data\Processed Data\Airlines", header=True)
+    wdu= WriteDataUtil()
+    wdu.writecsv(df=processed_df_na, path=r"C:\Users\Akash007\PycharmProjects\AirTravelDataMgnt\Written With WDU\Airlines_Csv",header=True)

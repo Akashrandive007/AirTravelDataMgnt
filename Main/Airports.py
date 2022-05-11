@@ -2,6 +2,7 @@ from pyspark.sql import SparkSession
 from Common.readdatautil import ReadDataUtil
 from pyspark.sql.types import *
 from pyspark.sql.functions import *
+from Common.witedatautil import WriteDataUtil
 
 if __name__ == '__main__':
     spark = SparkSession.builder.appName("Airports Data").master("local[*]").getOrCreate()
@@ -82,34 +83,7 @@ if __name__ == '__main__':
 
     processed_airports_na = processed_airports_int.fillna('(Unknown)', ['City'])
 
-    processed_airports_na.write.csv(r"C:\Users\Akash007\Desktop\airline data\Processed Data\Airports", header=True)
+    # processed_airports_na.write.csv(r"C:\Users\Akash007\Desktop\airline data\Processed Data\Airports", header=True)
 
-    # processed_airports_na.filter(col("Airport_Id") == '\\N').show(1)
-    # processed_airports_na.filter(col("Name") == '\\N').show(1)
-    # processed_airports_na.filter(col("City") == '\\N').show(1)
-    # processed_airports_na.filter(col("Country") == '\\N').show(1)
-    # processed_airports_na.filter(col("IATA") == '\\N').show(1)
-    # processed_airports_na.filter(col("ICAO") == '\\N').show(1)
-    # processed_airports_na.filter(col("Latitude") == '\\N').show(1)
-    # processed_airports_na.filter(col("Longitude") == '\\N').show(1)
-    # processed_airports_na.filter(col("Altitude_In_Feet") == '\\N').show(1)
-    # processed_airports_na.filter(col("Timezone") == '\\N').show(1)
-    # processed_airports_na.filter(col("DST") == '\\N').show(1)
-    # processed_airports_na.filter(col("TZ") == '\\N').show(1)
-    # processed_airports_na.filter(col("Type") == '\\N').show(1)
-    # processed_airports_na.filter(col("Source") == '\\N').show(1)
-    #
-    # processed_airports_na.filter(processed_airports_na.Airport_Id.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.Name.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.City.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.Country.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.IATA.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.ICAO.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.Latitude.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.Longitude.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.Altitude_In_Feet.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.Timezone.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.DST.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.TZ.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.Type.isNull()).show(1)
-    # processed_airports_na.filter(processed_airports_na.Source.isNull()).show(1)
+    wdu= WriteDataUtil()
+    wdu.writecsv(df=processed_airports_na,path=r"C:\Users\Akash007\PycharmProjects\AirTravelDataMgnt\Written With WDU\Airports_Csv",header=True)
